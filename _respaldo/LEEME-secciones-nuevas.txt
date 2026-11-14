@@ -1,0 +1,25 @@
+INVITACIÓN CANDY & JOSUÉ - SECCIONES NUEVAS
+
+Contenido:
+- index.html: muestra las cuatro secciones solicitadas.
+- css/estilos.css: estilos comentados.
+- assets/imagenes/fondo-floral.jpg: primera imagen de fondo enviada.
+- assets/imagenes/fondo-verde.jpg: segunda imagen de fondo enviada.
+
+PARA PROBAR:
+1. Extrae la carpeta ZIP.
+2. Abre la carpeta en Visual Studio Code.
+3. Abre index.html con Google Chrome.
+
+PARA INTEGRAR EN TU PROYECTO EXISTENTE:
+- Copia las cuatro secciones del <body> de este index.html y pégalas debajo
+  de tu contenido actual, antes del cierre </main> (si tienes ese elemento)
+  o antes de </body>.
+- Copia los estilos de css/estilos.css al final de tu hoja CSS actual.
+- Copia la carpeta assets/imagenes a la raíz de tu proyecto.
+- Si tu CSS está en otra ubicación, revisa las rutas de las imágenes.
+
+PERSONALIZACIÓN:
+- Cambia los textos de ejemplo directamente en index.html.
+- Sustituye PEGA_AQUI_TU_LINK_DE_CEMACO por el enlace real de Cemaco.
+- Los nombres de las imágenes deben conservarse o debes actualizar las rutas CSS.

@@ -38,170 +38,125 @@ body {
 }
 
 /* =========================================================
-   PORTADA Y SOBRE ANIMADO
+   PORTADA: SOBRE VERDE CON SELLO
    ========================================================= */
 
 .portada {
     min-height: 100svh;
-    padding: 35px 18px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
-
-    /* Fondo claro con un detalle verde suave */
-    background:
-        radial-gradient(ellipse at top left, rgba(210,229,203,.8), transparent 48%),
-        radial-gradient(ellipse at bottom right, rgba(224,232,211,.85), transparent 45%),
-        #fffdf8;
-}
-
-.portada-decoracion {
-    position: absolute;
-    inset: 16px;
-    border: 1px solid rgba(160,177,145,.65);
-    pointer-events: none;
-}
-
-.portada-frase,
-.portada-instruccion {
-    color: var(--verde-oscuro);
-    letter-spacing: 2px;
-    font-size: 12px;
-    text-transform: uppercase;
-}
-
-.portada-frase {
-    margin-bottom: 34px;
-}
-
-.portada-instruccion {
-    margin-top: 32px;
-    letter-spacing: 1px;
-}
-
-/* Botón que contiene la ilustración del sobre */
-.sobre-boton {
-    position: relative;
-    width: min(78vw, 330px);
-    height: 220px;
-    border: 0;
-    background: transparent;
-    cursor: pointer;
-    perspective: 900px;
-    filter: drop-shadow(0 14px 16px rgba(50,70,48,.16));
-}
-
-/* Cuerpo del sobre */
-.sobre-cuerpo {
-    position: absolute;
-    inset: 35px 0 0;
-    background: #e4eadb;
-    border: 1px solid #b9c5ae;
-    border-radius: 4px;
-    z-index: 1;
-}
-
-/* Solapa superior que gira al abrir el sobre */
-.sobre-solapa {
-    position: absolute;
-    z-index: 3;
-    top: 35px;
-    left: 0;
-    width: 100%;
-    height: 120px;
-    background: #cbd9c1;
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
-    transform-origin: top center;
-    transition: transform .9s ease;
-}
-
-/* Corazón decorativo */
-.sobre-corazon {
-    position: absolute;
-    z-index: 4;
-    top: 104px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #a77c70;
-    font-size: 34px;
-}
-
-/* Sello con iniciales */
-.sobre-sello {
-    position: absolute;
-    z-index: 5;
-    top: 112px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
+    padding: 24px 18px;
     display: grid;
     place-items: center;
-    background: #a77c70;
-    color: #fff9ef;
-    border: 3px double #e7d4c0;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 19px;
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, #fbfcf8 0%, #e6ece0 100%);
 }
 
-/* Animación de apertura */
-.sobre-boton.abierto .sobre-solapa {
-    transform: rotateX(180deg);
+/* El sobre: verde salvia con las líneas de los dobleces en X */
+.sobre-boton {
+    position: relative;
+    width: min(86vw, 400px);
+    aspect-ratio: 1.55 / 1;
+    border: 1px solid #93a98f;
+    cursor: pointer;
+    background:
+        linear-gradient(to top right, transparent calc(50% - .6px), rgba(255,255,255,.55) 50%, transparent calc(50% + .6px)),
+        linear-gradient(to bottom right, transparent calc(50% - .6px), rgba(255,255,255,.55) 50%, transparent calc(50% + .6px)),
+        #a6baa2;
+    box-shadow: 0 14px 26px rgba(50,70,48,.2);
+}
+
+/* Sello ovalado con las iniciales apiladas */
+.sobre-sello {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 58px;
+    height: 76px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: .95;
+    font-family: 'Great Vibes', cursive;
+    font-size: 22px;
+    color: #fff4e6;
+    background: radial-gradient(circle at 35% 30%, #dc9a7c, #b3694e 72%);
+    box-shadow: 0 3px 8px rgba(80,40,20,.35), inset 0 0 0 3px rgba(255,255,255,.12);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.sobre-texto {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 17%;
+    color: #667c66;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: opacity .4s ease;
+}
+
+/* Al abrir: el sello se desvanece y luego el sobre se disuelve */
+.sobre-boton.abierto .sobre-sello {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.3);
+}
+
+.sobre-boton.abierto .sobre-texto {
+    opacity: 0;
 }
 
 .sobre-boton.abierto {
-    animation: subir-sobre 1s ease forwards;
+    animation: disolver-sobre .7s ease .6s forwards;
 }
 
-@keyframes subir-sobre {
-    to {
-        opacity: 0;
-        transform: translateY(-35px) scale(.92);
-    }
+@keyframes disolver-sobre {
+    to { opacity: 0; transform: scale(1.04); }
+}
+
+/* La invitación aparece con un suave desvanecimiento */
+.invitacion {
+    animation: aparecer .9s ease;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* =========================================================
-   PRESENTACIÓN PRINCIPAL
+   ZONA INICIAL: FONDO fondo-inicio.jpg
+   Presentación, foto, calendario y evento comparten fondo
    ========================================================= */
 
+.zona-inicio {
+    background: #f2f4ef url("../assets/imagenes/fondo-inicio.jpg") center / 100% 100% no-repeat;
+}
+
 .hero {
-    min-height: 680px;
-    padding: 90px 20px;
+    min-height: 62svh;
+    padding: 9vh 20px 4vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     text-align: center;
-
-    /* Fondo verde suave para dar continuidad al estilo botánico */
-    background:
-        linear-gradient(rgba(250,252,246,.72), rgba(250,252,246,.84)),
-        url("../assets/imagenes/fondo-floral.jpg") center / cover no-repeat;
 }
 
-.hero-contenido {
-    width: min(100%, 760px);
-    padding: 35px 20px;
-}
-
-.texto-superior,
-.etiqueta {
-    color: var(--verde-medio);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 11px;
-    line-height: 1.8;
-}
-
-.hero h1 {
-    margin-top: 18px;
-    font-family: 'Cormorant Garamond', serif;
-    color: var(--verde-oscuro);
-    font-size: clamp(48px, 9vw, 82px);
+.titulo-boda {
+    font-family: 'Great Vibes', cursive;
     font-weight: 400;
+    font-size: clamp(56px, 11vw, 92px);
+    line-height: .95;
+    color: #5d6a5c;
+}
+
+.nombres {
+    margin-top: 12px;
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+    font-size: clamp(30px, 6vw, 46px);
+    color: #6f7d6d;
 }
 
 .adorno {
@@ -211,37 +166,10 @@ body {
     margin: 4px 0;
 }
 
-.nombres {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(42px, 8vw, 70px);
-    font-weight: 500;
-    color: var(--verde-oscuro);
-}
-
-.nombres span {
-    color: #ad8e76;
-    font-style: italic;
-}
-
-.frase-hero {
-    margin-top: 14px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 25px;
-    color: #687c62;
-}
-
-.fecha-hero {
-    margin-top: 25px;
-    color: var(--verde-oscuro);
-    letter-spacing: 3px;
-    font-size: 14px;
-}
-
-/* Botón de música */
 .boton-musica {
-    margin-top: 30px;
-    padding: 12px 22px;
-    border: 1px solid var(--verde-medio);
+    margin-top: 26px;
+    padding: 10px 20px;
+    border: 1px solid rgba(113,139,112,.55);
     border-radius: 30px;
     color: var(--verde-oscuro);
     background: rgba(255,255,255,.7);
@@ -256,90 +184,54 @@ body {
     color: white;
 }
 
-/* =========================================================
-   FOTOGRAFÍA DE LA PAREJA
-   ========================================================= */
-
+/* Foto de la pareja con la corona de hojas (PNG transparente) */
 .seccion-foto {
-    padding: 65px 18px 80px;
-    text-align: center;
-    background: #fffdf9;
+    padding: 0 18px 34px;
 }
 
-.texto-seccion {
-    margin: 0 auto 28px;
-    color: var(--verde-oscuro);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 25px;
-}
-
-.marco-foto {
-    width: min(84vw, 440px);
-    min-height: 280px;
+.foto-corona {
+    width: min(92vw, 520px);
     margin: 0 auto;
-    padding: 10px;
-    border: 1px solid var(--dorado);
-    background: #fff;
-    box-shadow: 0 8px 24px rgba(0,0,0,.09);
 }
 
-.foto-pareja {
+.foto-corona img {
     display: block;
     width: 100%;
-    max-height: 570px;
-    object-fit: cover;
+    height: auto;
 }
 
-.aviso-foto {
-    min-height: 260px;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 25px;
-    color: var(--verde-oscuro);
-    background: #f1f4ec;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 23px;
-}
-
-/* =========================================================
-   CALENDARIO
-   ========================================================= */
-
-.seccion-calendario {
-    padding: 75px 18px;
+/* Calendario de diciembre */
+.seccion-calendario,
+.seccion-eventos {
+    padding: 10px 18px 36px;
     text-align: center;
-    background: #eef3e9;
 }
 
-.contenedor-seccion {
-    width: min(100%, 950px);
+.calendario,
+.tarjeta-evento {
+    width: min(100%, 380px);
     margin: 0 auto;
-}
-
-.contenedor-seccion > h2 {
-    margin: 10px 0 30px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(34px, 6vw, 48px);
-    font-weight: 500;
-    color: var(--verde-oscuro);
+    background: rgba(255,255,255,.62);
+    border: 1px solid rgba(158,175,150,.7);
 }
 
 .calendario {
-    width: min(100%, 390px);
-    margin: 0 auto;
-    padding: 28px;
-    background: rgba(255,255,255,.88);
-    border: 1px solid var(--verde-borde);
-    box-shadow: 0 7px 20px rgba(50,70,48,.07);
+    padding: 22px 24px 26px;
+}
+
+.gran-dia {
+    color: #6b786a;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-style: italic;
 }
 
 .calendario h3 {
-    margin-bottom: 22px;
+    margin-bottom: 14px;
     color: var(--verde-oscuro);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 29px;
-    font-weight: 500;
+    font-family: 'Great Vibes', cursive;
+    font-size: 44px;
+    font-weight: 400;
 }
 
 .dias-semana,
@@ -350,14 +242,14 @@ body {
 }
 
 .dias-semana span {
-    padding-bottom: 10px;
-    color: var(--verde-medio);
-    font-size: 10px;
-    font-weight: 600;
+    padding-bottom: 8px;
+    color: #4f5a4d;
+    font-size: 11px;
+    font-weight: 500;
 }
 
 .dias-mes span {
-    min-height: 37px;
+    min-height: 36px;
     display: grid;
     place-items: center;
     color: #596354;
@@ -369,85 +261,54 @@ body {
 }
 
 .dias-mes .dia-elegido {
-    width: 34px;
-    height: 34px;
-    min-height: 34px;
+    width: 33px;
+    height: 33px;
+    min-height: 33px;
     margin: auto;
     border-radius: 50%;
-    background: var(--verde-medio);
+    background: #3f4f3f;
     color: white;
     font-weight: 600;
 }
 
-.nota-calendario {
-    margin-top: 25px;
-    color: var(--verde-oscuro);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 23px;
-}
-
-/* =========================================================
-   CEREMONIA Y RECEPCIÓN
-   ========================================================= */
-
+/* Ceremonia y recepción */
 .seccion-eventos {
-    padding: 75px 18px;
-    text-align: center;
-    background: #fffdf9;
-}
-
-.eventos-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 25px;
+    padding-bottom: 90px;
 }
 
 .tarjeta-evento {
-    padding: 35px 24px;
-    background: #f4f6ef;
-    border: 1px solid #d2d9c9;
-}
-
-.icono-evento {
-    color: var(--verde-medio);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 43px;
+    padding: 26px 22px;
 }
 
 .tarjeta-evento h3 {
-    margin: 8px 0 18px;
-    color: var(--verde-oscuro);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 30px;
-    font-weight: 500;
+    margin-bottom: 8px;
+    color: #55584f;
+    font-family: 'Great Vibes', cursive;
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1.1;
 }
 
 .tarjeta-evento p {
-    margin: 8px 0;
-    font-size: 13px;
-    line-height: 1.8;
+    font-size: 15px;
+    line-height: 1.7;
 }
 
 .tarjeta-evento .dato-evento {
+    font-size: 24px;
     color: var(--verde-oscuro);
-    font-weight: 600;
 }
 
 .enlace-mapa {
     display: inline-block;
-    margin-top: 18px;
-    padding: 11px 20px;
-    border: 1px solid var(--verde-medio);
-    border-radius: 25px;
-    color: var(--verde-oscuro);
-    text-decoration: none;
+    margin-top: 10px;
+    color: var(--texto);
     font-size: 12px;
-    transition: .25s ease;
+    text-decoration: underline;
 }
 
 .enlace-mapa:hover {
-    background: var(--verde-medio);
-    color: white;
+    color: var(--verde-oscuro);
 }
 
 /* =========================================================
@@ -643,15 +504,6 @@ body {
    ========================================================= */
 
 @media (max-width: 650px) {
-    .hero {
-        min-height: 590px;
-        padding: 65px 15px;
-    }
-
-    .eventos-grid {
-        grid-template-columns: 1fr;
-    }
-
     .separador-verde {
         padding: 40px 12px;
     }
@@ -679,19 +531,11 @@ body {
         min-height: 130px;
     }
 
-    .marco-foto {
-        width: min(90vw, 440px);
-    }
-
     .calendario {
-        padding: 20px 12px;
+        padding: 20px 14px 22px;
     }
 
     .dias-mes span {
         min-height: 33px;
-    }
-
-    .portada-decoracion {
-        inset: 10px;
     }
 }

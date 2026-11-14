@@ -1,0 +1,283 @@
+/* =========================================================
+   ESTILOS DE LA INVITACIÓN - CANDY & JOSUÉ
+   En este archivo puedes cambiar colores, tamaños, espacios,
+   bordes, fondos y apariencia de cada cuadro.
+   ========================================================= */
+
+/* Configuración general de colores y medidas */
+:root {
+    --verde-oscuro: #405c43;       /* Color de títulos y textos verdes */
+    --verde-medio: #718b70;        /* Color del botón */
+    --verde-borde: #9eaf96;        /* Color de los bordes */
+    --texto: #55584f;              /* Color de los párrafos */
+    --blanco-tarjeta: rgba(255, 255, 255, 0.91);
+    --dorado-suave: #c9b98f;       /* Bordes decorativos */
+}
+
+/* Reinicia márgenes y facilita el cálculo de tamaños */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Apariencia general de toda la página */
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--texto);
+    background: #fff;
+}
+
+/* =========================================================
+   SECCIÓN VERDE: VERSÍCULO Y NOMBRES DE LOS PADRES
+   ========================================================= */
+
+.separador-verde {
+    /* Imagen verde texturizada que enviaste */
+    background-image: url("../assets/imagenes/fondo-verde.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Espacio exterior e interior de la sección */
+    padding: 65px 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Cuadro central que separa visualmente las dos partes */
+.contenido-separador {
+    width: min(92%, 850px);
+    padding: 38px 28px;
+    text-align: center;
+
+    /* Fondo semitransparente para facilitar la lectura */
+    background: rgba(245, 255, 242, 0.58);
+
+    border: 1px solid var(--verde-borde);
+    border-radius: 12px;
+}
+
+/* Referencia bíblica */
+.referencia-versiculo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 600;
+    color: var(--verde-oscuro);
+    margin-bottom: 14px;
+}
+
+/* Texto del versículo */
+.texto-versiculo {
+    max-width: 680px;
+    margin: 0 auto 28px;
+    color: var(--verde-oscuro);
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+/* Cada grupo de padres */
+.grupo-padres {
+    padding: 18px 8px;
+    border-top: 1px solid rgba(64, 92, 67, 0.35);
+}
+
+/* Título de padres del novio o de la novia */
+.grupo-padres h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--verde-oscuro);
+    margin-bottom: 8px;
+}
+
+/* Nombres de los padres */
+.grupo-padres p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #435846;
+}
+
+/* =========================================================
+   FONDO FLORAL DE LOS TRES CUADROS SIGUIENTES
+   ========================================================= */
+
+.fondo-floral {
+    /* Primera imagen enviada: rosas y hojas en las esquinas */
+    background-image: url("../assets/imagenes/fondo-floral.jpg");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Espacio entre los cuadros y los bordes de la página */
+    padding: 70px 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 42px;
+}
+
+/* =========================================================
+   DISEÑO COMPARTIDO DE LOS CUADROS
+   ========================================================= */
+
+.tarjeta {
+    width: min(92%, 760px);
+    padding: 38px 30px;
+    text-align: center;
+
+    /* Fondo blanco ligeramente transparente */
+    background: var(--blanco-tarjeta);
+
+    border: 1px solid var(--dorado-suave);
+    border-radius: 15px;
+
+    /* Sombra delicada alrededor de cada cuadro */
+    box-shadow: 0 7px 22px rgba(52, 66, 48, 0.09);
+}
+
+/* Icono decorativo que aparece arriba del título */
+.icono {
+    color: var(--verde-medio);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    line-height: 1;
+    margin-bottom: 14px;
+}
+
+/* Títulos de los tres apartados */
+.tarjeta h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(27px, 4vw, 36px);
+    font-weight: 600;
+    color: var(--verde-oscuro);
+    margin-bottom: 18px;
+}
+
+/* Texto general dentro de cada cuadro */
+.tarjeta p {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--texto);
+    font-size: 15px;
+    line-height: 2;
+}
+
+/* =========================================================
+   CUADRO DE CÓDIGO DE VESTIMENTA
+   ========================================================= */
+
+/* Cambia aquí el espacio interior de este cuadro */
+.tarjeta-vestimenta {
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* =========================================================
+   CUADRO DE REGALOS EN CEMACO
+   ========================================================= */
+
+/* Este cuadro tiene más espacio para texto */
+.tarjeta-cemaco {
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Texto de Cemaco: puedes aumentar min-height si necesitas
+   más espacio para escribir información */
+.tarjeta-cemaco .texto-cemaco {
+    min-height: 145px;
+    margin-top: 4px;
+    margin-bottom: 26px;
+}
+
+/* Botón que abre el enlace de la lista de regalos */
+.boton-cemaco {
+    display: inline-block;
+    align-self: center;
+
+    padding: 14px 32px;
+    border-radius: 30px;
+
+    background: var(--verde-medio);
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+/* Efecto visual al pasar el cursor por el botón */
+.boton-cemaco:hover {
+    background: var(--verde-oscuro);
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   CUADRO FINAL: REGALOS
+   ========================================================= */
+
+.tarjeta-regalos {
+    min-height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* =========================================================
+   ADAPTACIÓN PARA TELÉFONOS Y PANTALLAS PEQUEÑAS
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .separador-verde {
+        padding: 38px 12px;
+    }
+
+    .contenido-separador {
+        width: 100%;
+        padding: 28px 18px;
+    }
+
+    .fondo-floral {
+        padding: 42px 12px;
+        gap: 26px;
+    }
+
+    .tarjeta {
+        width: 100%;
+        padding: 30px 19px;
+    }
+
+    .tarjeta-cemaco {
+        min-height: 390px;
+    }
+
+    .tarjeta-cemaco .texto-cemaco {
+        min-height: 130px;
+    }
+
+    .grupo-padres h3 {
+        font-size: 22px;
+    }
+
+    .grupo-padres p,
+    .texto-versiculo,
+    .tarjeta p {
+        font-size: 14px;
+    }
+
+    .boton-cemaco {
+        padding: 13px 24px;
+    }
+}
