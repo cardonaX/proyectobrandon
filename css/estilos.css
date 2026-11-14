@@ -135,8 +135,8 @@ body {
 }
 
 .hero {
-    min-height: 62svh;
-    padding: 9vh 20px 4vh;
+    min-height: auto;
+    padding: 9vh 20px 2vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -184,19 +184,33 @@ body {
     color: white;
 }
 
-/* Foto de la pareja con la corona de hojas (PNG transparente) */
+/* Foto de la pareja: corona grande (fondo) + corona pequeña con foto, ambas centradas */
 .seccion-foto {
-    padding: 0 18px 34px;
+    padding: 0 0 34px;
 }
 
 .foto-corona {
-    width: min(92vw, 520px);
+    position: relative;
+    width: min(100vw, 640px);
+    aspect-ratio: 1 / 1;
     margin: 0 auto;
+    display: grid;
+    place-items: center;
 }
 
+/* Círculo grande de hojas, centrado detrás de la foto */
+.foto-corona::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("../assets/imagenes/corona-grande.png") center / contain no-repeat;
+}
+
+/* Corona pequeña con la foto, centrada dentro del círculo grande */
 .foto-corona img {
+    position: relative;
     display: block;
-    width: 100%;
+    width: 74%;
     height: auto;
 }
 
