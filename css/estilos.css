@@ -1,0 +1,541 @@
+/* =========================================================
+   INVITACIÓN COMPLETA - CANDY & JOSUÉ
+   Cambia aquí colores, tamaños, fondos, bordes y espacios.
+   ========================================================= */
+
+/* VARIABLES GENERALES DE COLOR */
+:root {
+    --verde-oscuro: #405c43;        /* Títulos y textos principales */
+    --verde-medio: #718b70;         /* Botones y detalles */
+    --verde-claro: #e6f0df;         /* Fondos suaves */
+    --verde-borde: #9eaf96;         /* Bordes de cuadros */
+    --texto: #55584f;               /* Texto normal */
+    --dorado: #c9b98f;              /* Detalles decorativos */
+    --blanco: #fffdf9;              /* Fondo claro */
+    --papel: rgba(255,255,255,.91); /* Fondo de tarjetas */
+}
+
+/* REINICIO GENERAL */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--texto);
+    background: var(--blanco);
+}
+
+/* Clase que oculta la invitación antes de abrir el sobre */
+.oculto {
+    display: none;
+}
+
+/* =========================================================
+   PORTADA: SOBRE VERDE CON SELLO
+   ========================================================= */
+
+.portada {
+    min-height: 100svh;
+    padding: 24px 18px;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, #fbfcf8 0%, #e6ece0 100%);
+}
+
+/* El sobre: verde salvia con las líneas de los dobleces en X */
+.sobre-boton {
+    position: relative;
+    width: min(86vw, 400px);
+    aspect-ratio: 1.55 / 1;
+    border: 1px solid #93a98f;
+    cursor: pointer;
+    background:
+        linear-gradient(to top right, transparent calc(50% - .6px), rgba(255,255,255,.55) 50%, transparent calc(50% + .6px)),
+        linear-gradient(to bottom right, transparent calc(50% - .6px), rgba(255,255,255,.55) 50%, transparent calc(50% + .6px)),
+        #a6baa2;
+    box-shadow: 0 14px 26px rgba(50,70,48,.2);
+}
+
+/* Sello ovalado con las iniciales apiladas */
+.sobre-sello {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 58px;
+    height: 76px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: .95;
+    font-family: 'Great Vibes', cursive;
+    font-size: 22px;
+    color: #fff4e6;
+    background: radial-gradient(circle at 35% 30%, #dc9a7c, #b3694e 72%);
+    box-shadow: 0 3px 8px rgba(80,40,20,.35), inset 0 0 0 3px rgba(255,255,255,.12);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.sobre-texto {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 17%;
+    color: #667c66;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: opacity .4s ease;
+}
+
+/* Al abrir: el sello se desvanece y luego el sobre se disuelve */
+.sobre-boton.abierto .sobre-sello {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.3);
+}
+
+.sobre-boton.abierto .sobre-texto {
+    opacity: 0;
+}
+
+.sobre-boton.abierto {
+    animation: disolver-sobre .7s ease .6s forwards;
+}
+
+@keyframes disolver-sobre {
+    to { opacity: 0; transform: scale(1.04); }
+}
+
+/* La invitación aparece con un suave desvanecimiento */
+.invitacion {
+    animation: aparecer .9s ease;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* =========================================================
+   ZONA INICIAL: FONDO fondo-inicio.jpg
+   Presentación, foto, calendario y evento comparten fondo
+   ========================================================= */
+
+.zona-inicio {
+    background: #f2f4ef url("../assets/imagenes/fondo-inicio.jpg") center / 100% 100% no-repeat;
+}
+
+.hero {
+    min-height: 62svh;
+    padding: 9vh 20px 4vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.titulo-boda {
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+    font-size: clamp(56px, 11vw, 92px);
+    line-height: .95;
+    color: #5d6a5c;
+}
+
+.nombres {
+    margin-top: 12px;
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+    font-size: clamp(30px, 6vw, 46px);
+    color: #6f7d6d;
+}
+
+.adorno {
+    color: var(--verde-medio);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    margin: 4px 0;
+}
+
+.boton-musica {
+    margin-top: 26px;
+    padding: 10px 20px;
+    border: 1px solid rgba(113,139,112,.55);
+    border-radius: 30px;
+    color: var(--verde-oscuro);
+    background: rgba(255,255,255,.7);
+    font-family: inherit;
+    font-size: 12px;
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.boton-musica:hover {
+    background: var(--verde-medio);
+    color: white;
+}
+
+/* Foto de la pareja con la corona de hojas (PNG transparente) */
+.seccion-foto {
+    padding: 0 18px 34px;
+}
+
+.foto-corona {
+    width: min(92vw, 520px);
+    margin: 0 auto;
+}
+
+.foto-corona img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Calendario de diciembre */
+.seccion-calendario,
+.seccion-eventos {
+    padding: 10px 18px 36px;
+    text-align: center;
+}
+
+.calendario,
+.tarjeta-evento {
+    width: min(100%, 380px);
+    margin: 0 auto;
+    background: rgba(255,255,255,.62);
+    border: 1px solid rgba(158,175,150,.7);
+}
+
+.calendario {
+    padding: 22px 24px 26px;
+}
+
+.gran-dia {
+    color: #6b786a;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-style: italic;
+}
+
+.calendario h3 {
+    margin-bottom: 14px;
+    color: var(--verde-oscuro);
+    font-family: 'Great Vibes', cursive;
+    font-size: 44px;
+    font-weight: 400;
+}
+
+.dias-semana,
+.dias-mes {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.dias-semana span {
+    padding-bottom: 8px;
+    color: #4f5a4d;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.dias-mes span {
+    min-height: 36px;
+    display: grid;
+    place-items: center;
+    color: #596354;
+    font-size: 13px;
+}
+
+.dias-mes .vacio {
+    visibility: hidden;
+}
+
+.dias-mes .dia-elegido {
+    width: 33px;
+    height: 33px;
+    min-height: 33px;
+    margin: auto;
+    border-radius: 50%;
+    background: #3f4f3f;
+    color: white;
+    font-weight: 600;
+}
+
+/* Ceremonia y recepción */
+.seccion-eventos {
+    padding-bottom: 90px;
+}
+
+.tarjeta-evento {
+    padding: 26px 22px;
+}
+
+.tarjeta-evento h3 {
+    margin-bottom: 8px;
+    color: #55584f;
+    font-family: 'Great Vibes', cursive;
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.tarjeta-evento p {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.tarjeta-evento .dato-evento {
+    font-size: 24px;
+    color: var(--verde-oscuro);
+}
+
+.enlace-mapa {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--texto);
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.enlace-mapa:hover {
+    color: var(--verde-oscuro);
+}
+
+/* =========================================================
+   SEPARADOR VERDE: VERSÍCULO Y PADRES
+   ========================================================= */
+
+.separador-verde {
+    background-image: url("../assets/imagenes/fondo-verde.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 65px 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido-separador {
+    width: min(92%, 850px);
+    padding: 38px 28px;
+    text-align: center;
+    background: rgba(245,255,242,.65);
+    border: 1px solid var(--verde-borde);
+    border-radius: 12px;
+}
+
+.referencia-versiculo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 600;
+    color: var(--verde-oscuro);
+    margin-bottom: 14px;
+}
+
+.texto-versiculo {
+    max-width: 680px;
+    margin: 0 auto 28px;
+    color: var(--verde-oscuro);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.grupo-padres {
+    padding: 18px 8px;
+    border-top: 1px solid rgba(64,92,67,.35);
+}
+
+.grupo-padres h3 {
+    color: var(--verde-oscuro);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.grupo-padres p {
+    color: #435846;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* =========================================================
+   FONDO FLORAL PARA VESTIMENTA Y REGALOS
+   ========================================================= */
+
+.fondo-floral {
+    background-image: url("../assets/imagenes/fondo-floral.jpg");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 70px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 42px;
+}
+
+/* =========================================================
+   ESTILO GENERAL DE LOS CUADROS FINALES
+   ========================================================= */
+
+.tarjeta {
+    width: min(92%, 760px);
+    padding: 38px 30px;
+    text-align: center;
+    background: var(--papel);
+    border: 1px solid var(--dorado);
+    border-radius: 15px;
+    box-shadow: 0 7px 22px rgba(52,66,48,.09);
+}
+
+.icono {
+    color: var(--verde-medio);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    line-height: 1;
+    margin-bottom: 14px;
+}
+
+.tarjeta h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(27px, 4vw, 36px);
+    font-weight: 600;
+    color: var(--verde-oscuro);
+    margin-bottom: 18px;
+}
+
+.tarjeta p {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--texto);
+    font-size: 14px;
+    line-height: 2;
+}
+
+/* Cuadro de vestimenta */
+.tarjeta-vestimenta {
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Cuadro de Cemaco: más alto para permitir texto amplio */
+.tarjeta-cemaco {
+    min-height: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tarjeta-cemaco .texto-cemaco {
+    min-height: 145px;
+    margin-top: 4px;
+    margin-bottom: 26px;
+}
+
+/* Botón que abre la página o lista de regalos de Cemaco */
+.boton-cemaco {
+    display: inline-block;
+    align-self: center;
+    padding: 14px 32px;
+    border-radius: 30px;
+    background: var(--verde-medio);
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background .25s ease, transform .25s ease;
+}
+
+.boton-cemaco:hover {
+    background: var(--verde-oscuro);
+    transform: translateY(-2px);
+}
+
+/* Cuadro final de regalos */
+.tarjeta-regalos {
+    min-height: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* =========================================================
+   PIE DE LA INVITACIÓN
+   ========================================================= */
+
+.pie-invitacion {
+    padding: 55px 20px 65px;
+    text-align: center;
+    background: #eef3e9;
+    color: var(--verde-oscuro);
+}
+
+.pie-invitacion > p {
+    margin: 7px 0;
+    font-size: 13px;
+}
+
+.pie-invitacion .firma {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+}
+
+.pie-invitacion .gracias {
+    margin-top: 14px;
+    letter-spacing: 1px;
+}
+
+/* =========================================================
+   ADAPTACIÓN PARA TELÉFONOS
+   ========================================================= */
+
+@media (max-width: 650px) {
+    .separador-verde {
+        padding: 40px 12px;
+    }
+
+    .contenido-separador {
+        width: 100%;
+        padding: 28px 18px;
+    }
+
+    .fondo-floral {
+        padding: 42px 12px;
+        gap: 26px;
+    }
+
+    .tarjeta {
+        width: 100%;
+        padding: 30px 19px;
+    }
+
+    .tarjeta-cemaco {
+        min-height: 390px;
+    }
+
+    .tarjeta-cemaco .texto-cemaco {
+        min-height: 130px;
+    }
+
+    .calendario {
+        padding: 20px 14px 22px;
+    }
+
+    .dias-mes span {
+        min-height: 33px;
+    }
+}

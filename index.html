@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título de la invitación en la pestaña del navegador -->
+    <title>Nuestra boda | Candy &amp; Josué</title>
+
+    <!-- Hoja principal de estilos -->
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <!-- Tipografías elegantes para la invitación -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         PORTADA INICIAL: SOBRE CERRADO
+         Al tocar el sobre, JavaScript lo abre y muestra la boda.
+         ===================================================== -->
+    <section class="portada" id="portada">
+        <!-- Sobre verde con sello: al tocarlo se abre la invitación -->
+        <button class="sobre-boton" id="abrirSobre" type="button" aria-label="Abrir invitación">
+            <span class="sobre-sello"><span>C</span><span>&amp;</span><span>J</span></span>
+            <span class="sobre-texto">Toca para abrir</span>
+        </button>
+    </section>
+
+
+    <!-- =====================================================
+         CONTENIDO COMPLETO DE LA INVITACIÓN
+         Permanece oculto hasta abrir el sobre.
+         ===================================================== -->
+    <div class="invitacion oculto" id="invitacion">
+
+        <!-- =================================================
+             ZONA CON FONDO fondo-inicio.jpg
+             Presentación, foto, calendario y evento
+             ================================================= -->
+        <div class="zona-inicio">
+
+            <header class="hero">
+                <h1 class="titulo-boda">Nuestra<br>Boda</h1>
+                <h2 class="nombres">Josué &amp; Candy</h2>
+
+                <!-- Botón para controlar la música -->
+                <button class="boton-musica" id="botonMusica" type="button">
+                    <span id="iconoMusica">▶</span>
+                    <span id="textoMusica">Reproducir música</span>
+                </button>
+
+                <!-- COLOCA TU CANCIÓN en assets/musica/cancion.mp3 -->
+                <audio id="cancion" loop>
+                    <source src="assets/musica/cancion.mp3" type="audio/mpeg">
+                </audio>
+            </header>
+
+            <!-- Foto de la pareja dentro de la corona de hojas -->
+            <section class="seccion-foto">
+                <div class="foto-corona">
+                    <img src="assets/imagenes/foto-corona.png" alt="Fotografía de Josué y Candy">
+                </div>
+            </section>
+
+            <!-- Calendario: diciembre 2026, semana desde el lunes (el 1 cae en martes) -->
+            <section class="seccion-calendario">
+                <div class="calendario">
+                    <p class="gran-dia">El gran día…</p>
+                    <h3>Diciembre</h3>
+                    <div class="dias-semana">
+                        <span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
+                    </div>
+                    <div class="dias-mes">
+                        <span class="vacio"></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span class="dia-elegido">6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ceremonia y recepción -->
+            <section class="seccion-eventos">
+                <div class="tarjeta-evento">
+                    <h3>Ceremonia y recepción</h3>
+                    <p class="dato-evento">10:00</p>
+                    <p>Salón Zaphiro</p>
+                    <a class="enlace-mapa" href="https://share.google/76BAt5HtG9WAHqX05"
+                       target="_blank" rel="noopener noreferrer">Ver mapa / Ubicación</a>
+                </div>
+            </section>
+
+        </div>
+
+
+        <!-- =================================================
+             SECCIÓN 5: SEPARADOR VERDE, VERSÍCULO Y PADRES
+             Usa la segunda imagen que enviaste como fondo.
+             ================================================= -->
+        <section class="separador-verde">
+            <div class="contenido-separador">
+
+                <!-- Referencia bíblica editable -->
+                <h2 class="referencia-versiculo">Eclesiastés 4:12</h2>
+
+                <!-- Escribe aquí el versículo completo -->
+                <p class="texto-versiculo">
+                    Y si alguno prevaleciere contra uno, dos le resistirán; y cordón de tres dobleces no se rompe pronto.
+                </p>
+
+                <!-- Nombres de los padres del novio -->
+                <div class="grupo-padres">
+                    <h3>Padres del novio</h3>
+                    <p>Nombre del padre y nombre de la madre</p>
+                </div>
+
+                <!-- Nombres de los padres de la novia -->
+                <div class="grupo-padres">
+                    <h3>Padres de la novia</h3>
+                    <p>Nombre del padre y nombre de la madre</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =================================================
+             SECCIONES FINALES CON EL FONDO FLORAL
+             ================================================= -->
+        <main class="fondo-floral">
+
+            <!-- SECCIÓN 6: CÓDIGO DE VESTIMENTA -->
+            <section class="tarjeta tarjeta-vestimenta">
+                <!-- Icono situado encima del título -->
+                <div class="icono" aria-hidden="true">♕</div>
+                <h2>Código de vestimenta</h2>
+
+                <!-- Reemplaza por el código de vestimenta real -->
+                <p>
+                    Escribe aquí las indicaciones del código de vestimenta
+                    para nuestros invitados.
+                </p>
+            </section>
+
+
+            <!-- SECCIÓN 7: REGALOS EN CEMACO -->
+            <section class="tarjeta tarjeta-cemaco">
+                <!-- Icono del apartado -->
+                <div class="icono" aria-hidden="true">♡</div>
+                <h2>Regalos en Cemaco</h2>
+
+                <!-- Espacio amplio para la información de la lista -->
+                <p class="texto-cemaco">
+                    Escribe aquí la información sobre los regalos,
+                    la lista de obsequios o las indicaciones para
+                    nuestros invitados.
+                </p>
+
+                <!-- Reemplaza el href por tu enlace real de Cemaco -->
+                <a class="boton-cemaco"
+                   href="https://www.cemaco.com/list/JOSUEYCANDI06122026"
+                   target="_blank" rel="noopener noreferrer">
+                    Ver lista de regalos
+                </a>
+            </section>
+
+
+            <!-- SECCIÓN 8: REGALOS GENERALES -->
+            <section class="tarjeta tarjeta-regalos">
+                <!-- Icono del apartado -->
+                <div class="icono" aria-hidden="true">❀</div>
+                <h2>Regalos</h2>
+
+                <!-- Escribe aquí el mensaje general sobre los regalos -->
+                <p>
+                    Escribe aquí el mensaje que deseas compartir
+                    con tus invitados acerca de los regalos.
+                </p>
+            </section>
+
+        </main>
+
+
+        <!-- =================================================
+             CIERRE DE LA INVITACIÓN
+             ================================================= -->
+        <footer class="pie-invitacion">
+            <div class="adorno">❦</div>
+            <p>Con cariño,</p>
+            <p class="firma">Candy &amp; Josué</p>
+            <p class="gracias">Gracias por ser parte de nuestra historia.</p>
+        </footer>
+
+    </div>
+
+    <!-- Archivo JavaScript que controla el sobre y la música -->
+    <script src="js/script.js"></script>
+</body>
+</html>

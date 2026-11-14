@@ -1,0 +1,35 @@
+INVITACIÓN DE BODA - JOSUÉ & CANDY  (proyecto unificado)
+
+CÓMO ABRIRLA
+1. Extrae el ZIP (no la abras desde dentro del ZIP).
+2. Abre la carpeta en Visual Studio Code.
+3. Abre index.html en Google Chrome.
+
+ESTRUCTURA
+index.html                  Toda la invitación (textos, fechas, enlaces)
+css/estilos.css             Colores, tamaños y fondos
+js/script.js                Sobre animado y botón de música
+assets/imagenes/
+    fondo-inicio.jpg        Fondo de presentación, foto, calendario y evento
+    foto-corona.png         Foto de la pareja con la corona de hojas (fondo transparente)
+    fondo-verde.jpg         Fondo del versículo y los padres
+    fondo-floral.jpg        Fondo de vestimenta y regalos
+    foto-pareja.jpg         Foto original (respaldo)
+assets/musica/              Coloca aquí tu canción como cancion.mp3
+_referencias/               Capturas de los videos y del sobre de inspiración
+_respaldo/                  Versión parcial anterior
+
+ORDEN
+Sobre -> Nuestra Boda / Josué & Candy / música -> Foto -> Calendario (6 de diciembre de 2026)
+-> Ceremonia y recepción (10:00, Salón Zaphiro, enlace de mapa) -> Versículo y padres
+-> Código de vestimenta -> Regalos en Cemaco (enlace) -> Regalos -> Despedida
+
+FALTA POR COMPLETAR (en index.html)
+- Nombres de los padres del novio y de la novia
+- Texto de Código de vestimenta, Regalos en Cemaco y Regalos
+- La canción: assets/musica/cancion.mp3
+
+NOTAS
+- fondo-verde.jpg tiene una marca de agua tenue de 123RF; conviene una versión sin marca.
+- El fondo inicial se estira para cubrir toda la zona (igual que el fondo floral). Si en el celular
+  se ve deformado, se puede ajustar.
