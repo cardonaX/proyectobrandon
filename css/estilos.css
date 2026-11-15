@@ -5,14 +5,22 @@
 
 /* VARIABLES GENERALES DE COLOR */
 :root {
-    --verde-oscuro: #405c43;        /* Títulos y textos principales */
-    --verde-medio: #718b70;         /* Botones y detalles */
-    --verde-claro: #e6f0df;         /* Fondos suaves */
-    --verde-borde: #9eaf96;         /* Bordes de cuadros */
-    --texto: #55584f;               /* Texto normal */
-    --dorado: #c9b98f;              /* Detalles decorativos */
-    --blanco: #fffdf9;              /* Fondo claro */
-    --papel: rgba(255,255,255,.91); /* Fondo de tarjetas */
+    --verde-oscuro: #405c43;
+    /* Títulos y textos principales */
+    --verde-medio: #718b70;
+    /* Botones y detalles */
+    --verde-claro: #e6f0df;
+    /* Fondos suaves */
+    --verde-borde: #9eaf96;
+    /* Bordes de cuadros */
+    --texto: #55584f;
+    /* Texto normal */
+    --dorado: #c9b98f;
+    /* Detalles decorativos */
+    --blanco: #fffdf9;
+    /* Fondo claro */
+    --papel: rgba(255, 255, 255, .91);
+    /* Fondo de tarjetas */
 }
 
 /* REINICIO GENERAL */
@@ -58,10 +66,10 @@ body {
     border: 1px solid #93a98f;
     cursor: pointer;
     background:
-        linear-gradient(to top right, transparent calc(50% - .6px), rgba(255,255,255,.55) 50%, transparent calc(50% + .6px)),
-        linear-gradient(to bottom right, transparent calc(50% - .6px), rgba(255,255,255,.55) 50%, transparent calc(50% + .6px)),
+        linear-gradient(to top right, transparent calc(50% - .6px), rgba(255, 255, 255, .55) 50%, transparent calc(50% + .6px)),
+        linear-gradient(to bottom right, transparent calc(50% - .6px), rgba(255, 255, 255, .55) 50%, transparent calc(50% + .6px)),
         #a6baa2;
-    box-shadow: 0 14px 26px rgba(50,70,48,.2);
+    box-shadow: 0 14px 26px rgba(50, 70, 48, .2);
 }
 
 /* Sello ovalado con las iniciales apiladas */
@@ -82,7 +90,7 @@ body {
     font-size: 22px;
     color: #fff4e6;
     background: radial-gradient(circle at 35% 30%, #dc9a7c, #b3694e 72%);
-    box-shadow: 0 3px 8px rgba(80,40,20,.35), inset 0 0 0 3px rgba(255,255,255,.12);
+    box-shadow: 0 3px 8px rgba(80, 40, 20, .35), inset 0 0 0 3px rgba(255, 255, 255, .12);
     transition: opacity .6s ease, transform .6s ease;
 }
 
@@ -112,7 +120,10 @@ body {
 }
 
 @keyframes disolver-sobre {
-    to { opacity: 0; transform: scale(1.04); }
+    to {
+        opacity: 0;
+        transform: scale(1.04);
+    }
 }
 
 /* La invitación aparece con un suave desvanecimiento */
@@ -121,8 +132,13 @@ body {
 }
 
 @keyframes aparecer {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* =========================================================
@@ -169,10 +185,10 @@ body {
 .boton-musica {
     margin-top: 26px;
     padding: 10px 20px;
-    border: 1px solid rgba(113,139,112,.55);
+    border: 1px solid rgba(113, 139, 112, .55);
     border-radius: 30px;
     color: var(--verde-oscuro);
-    background: rgba(255,255,255,.7);
+    background: rgba(255, 255, 255, .7);
     font-family: inherit;
     font-size: 12px;
     cursor: pointer;
@@ -225,8 +241,8 @@ body {
 .tarjeta-evento {
     width: min(100%, 380px);
     margin: 0 auto;
-    background: rgba(255,255,255,.62);
-    border: 1px solid rgba(158,175,150,.7);
+    background: rgba(255, 255, 255, .62);
+    border: 1px solid rgba(158, 175, 150, .7);
 }
 
 .calendario {
@@ -344,7 +360,7 @@ body {
     width: min(92%, 850px);
     padding: 38px 28px;
     text-align: center;
-    background: rgba(245,255,242,.65);
+    background: rgba(245, 255, 242, .65);
     border: 1px solid var(--verde-borde);
     border-radius: 12px;
 }
@@ -367,7 +383,7 @@ body {
 
 .grupo-padres {
     padding: 18px 8px;
-    border-top: 1px solid rgba(64,92,67,.35);
+    border-top: 1px solid rgba(64, 92, 67, .35);
 }
 
 .grupo-padres h3 {
@@ -410,7 +426,7 @@ body {
     background: var(--papel);
     border: 1px solid var(--dorado);
     border-radius: 15px;
-    box-shadow: 0 7px 22px rgba(52,66,48,.09);
+    box-shadow: 0 7px 22px rgba(52, 66, 48, .09);
 }
 
 .icono {
@@ -498,7 +514,7 @@ body {
     color: var(--verde-oscuro);
 }
 
-.pie-invitacion > p {
+.pie-invitacion>p {
     margin: 7px 0;
     font-size: 13px;
 }
@@ -551,5 +567,76 @@ body {
 
     .dias-mes span {
         min-height: 33px;
+    }
+}
+
+/* =========================================================
+   LETRA CALIGRÁFICA SOLO PARA EL CONTENIDO (textos)
+   Los títulos se quedan como estaban.
+   Para cambiar de letra, solo cambia el nombre en --letra-contenido
+   (y en el enlace de tipografías del index.html).
+   ========================================================= */
+
+:root {
+    --letra-contenido: 'Allura', 'Great Vibes', cursive;
+}
+
+.texto-versiculo,
+.grupo-padres p,
+.tarjeta p,
+.tarjeta-evento p,
+.pie-invitacion>p:not(.firma),
+.enlace-mapa {
+    font-family: var(--letra-contenido);
+    letter-spacing: 0;
+}
+
+.texto-versiculo {
+    font-size: 26px;
+    line-height: 1.6;
+}
+
+.grupo-padres p {
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+.tarjeta p {
+    font-size: 23px;
+    line-height: 1.6;
+}
+
+.tarjeta-evento p {
+    font-size: 26px;
+    line-height: 1.4;
+}
+
+.tarjeta-evento .dato-evento {
+    font-size: 34px;
+}
+
+.enlace-mapa {
+    font-size: 22px;
+}
+
+.pie-invitacion>p:not(.firma) {
+    font-size: 22px;
+}
+
+@media (max-width: 650px) {
+    .texto-versiculo {
+        font-size: 23px;
+    }
+
+    .grupo-padres p {
+        font-size: 22px;
+    }
+
+    .tarjeta p {
+        font-size: 21px;
+    }
+
+    .tarjeta-evento p {
+        font-size: 24px;
     }
 }
