@@ -640,3 +640,12 @@ body {
         font-size: 24px;
     }
 }
+
+/* Espacio entre los párrafos de la tarjeta de regalos */
+.tarjeta-regalos p {
+    margin-bottom: 34px;
+}
+
+.tarjeta-regalos p:last-of-type {
+    margin-bottom: 0;
+}
